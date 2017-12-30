@@ -63,33 +63,49 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
-% 1) get h(x) of neural net for each trial
-   h1 = sigmoid([ones(m,1) X] * Theta1');
-   h2 = sigmoid([ones(m, 1) h1] * Theta2');
-
-% rows are trials, columns are or values of K
+% 1) get h(x) of neural net for each trial, aka the feedforward values
+ z1 = [ones(m,1) X] * Theta1';
+ a2 = sigmoid(z1); %5000 x 25
+ z2 = [ones(m, 1) a2] * Theta2';
+ a3 = sigmoid(z2); %5000 x 10
 [k,trash] = size(Theta2);
 
-for i = 1:m % for each sample
-    for j = 1:k % for each classification
-      J = J - ((y(i,1)==j)*log(h2(i,j))) - (1-(y(i,1)==j))*log(1-h2(i,j));
-    end
-end
-J = J / m;
+%Unregularized Cost with for-loop
+%for i = 1:m % for each sample
+%    for j = 1:k % for each classification
+%      J = J - ((y(i,1)==j)*log(h2(i,j))) - (1-(y(i,1)==j))*log(1-h2(i,j));
+%    end
+%end
+%J = J / m;
 
+%Vectorized unregularized cost
 newY = zeros(m,k);
 for i = 1:m
-   newY(i,:) = ([1:10]==y(i,1)); 
+   newY(i,:) = ([1:k]==y(i,1)); 
 end
-J = ( -newY'*(log(h2)) - (log(1-h2')*(1-newY)) ) / m;
-disp(J)
+J =  -newY.*(log(a3)) - ((1-newY).*log(1-a3));
+J = sum(sum(J))/m;
+%Regularized Cost
+J = J + (sum(sum(Theta2(:,2:end).^2)) + sum(sum(Theta1(:,2:end).^2))) *lambda/2/m;
 
+%*****Compute Gradients*****
+%Know that feedforward values are in h1 and h2, with h2 as the output layer
+d3 = a3 - newY; %error in each output 5000 x 10
+d2 = (d3 * Theta2(:,2:end)) .* sigmoidGradient(z1);
+%5000X25 = 5000X10*10X25 .* (5000X401 * 401X25)
+
+Theta2_grad = d3' * [ones(m,1) a2] /m;
+Theta1_grad = d2' * [ones(m,1) X] /m;
+
+
+%Regulariz
 % -------------------------------------------------------------
 
 % =========================================================================
 
 % Unroll gradients
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
+
 
 
 end
