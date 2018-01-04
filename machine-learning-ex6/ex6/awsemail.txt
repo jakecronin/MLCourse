@@ -1,0 +1,289 @@
+Delivered-To: crupcollc@gmail.com
+Received: by 10.200.51.194 with SMTP id d2csp13175684qtb; Sun, 31 Dec 2017
+ 20:24:38 -0800 (PST)
+X-Google-Smtp-Source: ACJfBosPoJvDjiJ32ZxaG/+C9wINvfoJfhUnKJfggoWx6tcEsDv/fvM5ZdW65cDurTdOr0GROw7U
+X-Received: by 10.55.107.65 with SMTP id g62mr52181611qkc.295.1514780678297;
+ Sun, 31 Dec 2017 20:24:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1514780678; cv=none; d=google.com;
+ s=arc-20160816;
+ b=SyWEiEf8kcMlSy8Evy7n0UAndouUS+b3pVJihBykmT1vWYIfMh+kqUqQVWQt5T3FyO
+ kwGJXUgWt0hhdMXnsNfMuvx1jNUMYCTgFEccm6l6XWK1XJKXmyPwmUkcoW2voC/cKDd/
+ tMYRyqfVseO2Ti2cunSCCFl7t6E0xTE9CRQ+e0d6Rq3ewEjKqed51nwiP7Zakv6Zikb+
+ c0VfYq2AtfG5OQOoHbKVmQGjRDvcGN0VSinckCu+0NtBKqbK3EGTBcuUX9DluT8g0053
+ xVe8XYITYzv/TR2kaeMTlTSW9zxzbYJBd1YXGx8/EQkQDxGcZFwx5CqVqJKNusKqmmp/ wjHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
+ s=arc-20160816;
+ h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from
+ :dkim-signature:dkim-signature:arc-authentication-results;
+ bh=hegyqlRqA5LzNB0kmTjYaIn605mKMOOKXb9dFZlE2EA=;
+ b=PczB//bNspPlmmMiIUBRBESjqeJQUEzjiwvmdEc4cImiMy4d3HSeMqF5+DoE/CDolG
+ Ctk238g1at0njJ4y2swlQBwFXP1wYR+g0epAhGiIFWRiK1zpyQFkh2pJgRsrBSJAk6Fw
+ DXKZjTRC/UOQVyeW74JQ/EGY9lyP81XnznWvg4uW0UDlu3tqGyR1psv+naOWPaD8t024
+ b5i/C7hPT67EpaAaf2dxfrbyAums2V4NeVi12WNyxnQqMxUiRlECXhGbUiF5DrPi5GeB
+ 2EAW/njcNwLq3/OkTqStM3wlkrHeb7bG7v9NVmByVKEcLGhqpFnLp+tHIYUKhAPzIppq /MSQ==
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@amazon.com
+ header.s=yg4mwqurec7fkhzutopddd3ytuaqrvuz header.b=Y1RxosiV; dkim=pass
+ header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono
+ header.b=lYy3HG41; spf=pass (google.com: domain of
+ 201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com designates
+ 54.240.13.9 as permitted sender)
+ smtp.mailfrom=201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com;
+ dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+Return-Path: <201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com>
+Received: from a13-9.smtp-out.amazonses.com (a13-9.smtp-out.amazonses.com.
+ [54.240.13.9]) by mx.google.com with ESMTPS id
+ s43si9079142qtb.412.2017.12.31.20.24.37 for <crupcollc@gmail.com>
+ (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128); Sun, 31 Dec 2017
+ 20:24:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of
+ 201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com designates
+ 54.240.13.9 as permitted sender) client-ip=54.240.13.9;
+Authentication-Results: mx.google.com; dkim=pass header.i=@amazon.com
+ header.s=yg4mwqurec7fkhzutopddd3ytuaqrvuz header.b=Y1RxosiV; dkim=pass
+ header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono
+ header.b=lYy3HG41; spf=pass (google.com: domain of
+ 201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com designates
+ 54.240.13.9 as permitted sender)
+ smtp.mailfrom=201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com;
+ dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+ s=yg4mwqurec7fkhzutopddd3ytuaqrvuz; d=amazon.com; t=1514780677;
+ h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+ bh=6qvSNIJfnFwvKr9lVdklAWpCFvIhLQUef0qTk54SwHk=;
+ b=Y1RxosiVNrtgSrtwYZmNlH/yCV2UUtzGOSp+Sg10lnn+A2oFAk45p2UX+wxjJI0O
+ NXu1uepb7vnq7Ieb2cHTNisZB3UMnDZmngkboy+bjM4o/hCazepSrOoabPGsMs2QRu6
+ bAKN1c29n2iNcynEM06BvOcE6iXn+87Ay0IJzhr0=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+ s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1514780677;
+ h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+ bh=6qvSNIJfnFwvKr9lVdklAWpCFvIhLQUef0qTk54SwHk=;
+ b=lYy3HG41WTs/TS2ox9Agcw7QVAYvhrZckHMahIDXi3Dhs0thvq7brW7oPCZvvfHZ
+ f+aLT/YUqxrZWA9htHSYPWLL/oUSMX/6QlMQQ0mDG+fGcxlpJ9olSIJLb5yUnMpgsyU
+ LxdiZnFta6UJ65W9G/RBn8XngIsy4xHNUFH3jRkA=
+From: no-reply-aws@amazon.com
+To: crupcollc@gmail.com
+Message-ID: <01000160aff6d639-90af9b0a-48d2-4590-95fb-1d5e5c47a9fa-000000@email.amazonses.com>
+Subject: You are approaching your AWS Free Tier limit for one or more AWS
+ services
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="----=_Part_3310434_1611895896.1514780677678"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 201801010424375637dcdc446544968983680685d0p0na@bounces.amazon.com
+X-AMAZON-METADATA: CA=CRI8EFTP23HKT-CU=A3DXN6MVR7HC4Y-RI=A1VZ5Y2K1YASVT
+X-Original-MessageID: <urn.rtn.msg.201801010424375637dcdc446544968983680685d0p0na@1514780677679.rtn-svc-na-back-m4l1e-2cc53878.us-east-1.amazon.com>
+Date: Mon, 1 Jan 2018 04:24:37 +0000
+X-SES-Outgoing: 2018.01.01-54.240.13.9
+Feedback-ID: 1.us-east-1.ZHcGJK6s+x+i9lRHKog4RW3tECwWIf1xzTYCZyUaiec=:AmazonSES
+
+------=_Part_3310434_1611895896.1514780677678
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+
+------=_Part_3310434_1611895896.1514780677678
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+    <style type=3D"text/css">
+        table {
+            width:100%;=20
+            font-family: Helvetica, Arial,sans-serif;
+        }
+       =20
+        .tableCell {
+            border: 1px solid #CCCCCC;
+            padding:5px 10px;
+        }
+       =20
+        p.footer {
+            font-family: Helvetica, Arial,sans-serif;
+            font-size:6pt;
+            color:#000000;
+            text-align:justify
+        }
+    </style>
+    <body><img width=3D"1" height=3D"1" src=3D"https://www.amazon.com/gp/r.=
+html?C=3D1970XDYI1EEUZ&K=3D3RYY7GEDPIUGM&M=3Durn:rtn:msg:201801010424375637=
+dcdc446544968983680685d0p0na&R=3D3U7Y3N87ZT5MV&T=3DO&U=3Dhttps%3A%2F%2Fimag=
+es-na.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3D4KXBN6=
+EZBYALUWHPG4Y0BAN6TCIA&ref_=3Dpe_3493790_260402510_opens" />
+       <table>
+           <tr>
+               <td align=3D"right">
+                   <img style=3D"display:block;" height=3D35 src=3D"https:/=
+/d1.awsstatic.com/logos/aws-logo/full-color/AWS-Logo_Full-Color_100x60.5e9a=
+396f44e8a57089a6c62488cd51517ae74f4b.png" align=3Dright
+                   hspace=3D6 vspace=3D6 alt=3D"Description: awslogo" title=
+=3D"Description: awslogo" v:shapes=3D"Picture_x0020_1">
+                   </img>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <p style=3D"margin-bottom: 6px; margin-top: 0px; border-=
+top: 7px solid #FFC000; text-align:center; font-size:1px; " >&nbsp;</p>
+
+               </td>
+           </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+               <td>
+                   Free Tier Limit Alert via AWS Budgets
+               </td>
+               <td align=3D"right">
+                   01/01/2018
+               </td>
+           </tr>
+         </table>
+         <br>
+         <table>
+           <tr>
+               <td>Dear AWS Customer, </td>
+           </tr>
+        </table>
+        <br>
+        <table>
+           <tr>
+               <td>
+                Based on this month=E2=80=99s AWS usage, you are currently =
+forecasted to breach the free tier usage limits for the below services. Onc=
+e a free tier usage limit is breached, you will be charged the standard, pa=
+y-as-you-go service rate for that usage type. To avoid breaching your free =
+tier usage limits, please access your AWS account to review your service us=
+age and, where necessary, adjust your usage. You can find more information =
+on AWS Free Tier <a href=3D"https://www.amazon.com/gp/f.html?C=3D1970XDYI1E=
+EUZ&K=3D3RYY7GEDPIUGM&M=3Durn:rtn:msg:201801010424375637dcdc446544968983680=
+685d0p0na&R=3D3U7Y3N87ZT5MV&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Ffree%2=
+F%3Fref_%3Dpe_3493790_260402510&H=3DNXTH6ZG0Y84FPZFQHNMSCUYIO8QA&ref_=3Dpe_=
+3493790_260402510">here</a>.
+               </td>
+           </tr>
+       </table>=20
+       <br>
+       <table style=3D"border-collapse: collapse; max-width: 800px;">
+           <tr align=3D"left" bgcolor=3D"#CCCCCC">
+               <td class=3D"tableCell">
+                   <font color=3D"#000000">AWS Service</font>
+               </td>
+               <td class=3D"tableCell">
+                   <font color=3D"#000000">Current Usage</font>
+               </td>
+               <td class=3D"tableCell">
+                   <font color=3D"#000000">Forecasted Usage</font>
+               </td>
+               <td class=3D"tableCell">
+                   <font color=3D"#000000">Free Tier Usage Limit</font>
+               </td>
+           </tr>
+          =20
+           <tr>
+               <td class=3D"tableCell">
+                   750 hours of Amazon EC2 Linux t2.micro instance usage
+               </td>
+               <td class=3D"tableCell">
+                   744 Hrs
+               </td>
+               <td class=3D"tableCell">
+                   23064.0 Hrs
+               </td>
+               <td class=3D"tableCell">
+                   750 Hrs
+               </td>
+           </tr>
+          =20
+           <tr>
+               <td class=3D"tableCell">
+                   30 GB of Amazon Elastic Block Storage in any combination=
+ of General Purpose (SSD) or Magnetic
+               </td>
+               <td class=3D"tableCell">
+                   18.0000012 GB-Mo
+               </td>
+               <td class=3D"tableCell">
+                   558.0 GB-Mo
+               </td>
+               <td class=3D"tableCell">
+                   30 GB-Mo
+               </td>
+           </tr>
+          =20
+           <tr>
+               <td class=3D"tableCell">
+                   10 alarms for Amazon Cloudwatch=C2=A0
+               </td>
+               <td class=3D"tableCell">
+                   1.00000296 Alarms
+               </td>
+               <td class=3D"tableCell">
+                   31.0 Alarms
+               </td>
+               <td class=3D"tableCell">
+                   10 Alarms
+               </td>
+           </tr>
+          =20
+       </table>
+       <br>
+        <table>
+           <tr>
+               <td>
+                <em>This alert is provided by <a href=3D"https://www.amazon=
+.com/gp/f.html?C=3D1970XDYI1EEUZ&K=3D3RYY7GEDPIUGM&M=3Durn:rtn:msg:20180101=
+0424375637dcdc446544968983680685d0p0na&R=3D3U7Y3N87ZT5MV&T=3DC&U=3Dhttps%3A=
+%2F%2Fconsole.aws.amazon.com%2Fbilling%2Fhome%3F%2F%26ref_%3Dpe_3493790_260=
+402510%23%2Fbudgets&H=3DSR2QZI9A2DVPTALHDENHA38DANKA&ref_=3Dpe_3493790_2604=
+02510">AWS Budgets</a>. To unsubscribe from these alerts or to change the e=
+mail address to which you would like your alerts to be sent, please visit <=
+a href=3D"https://www.amazon.com/gp/f.html?C=3D1970XDYI1EEUZ&K=3D3RYY7GEDPI=
+UGM&M=3Durn:rtn:msg:201801010424375637dcdc446544968983680685d0p0na&R=3D3U7Y=
+3N87ZT5MV&T=3DC&U=3Dhttps%3A%2F%2Fconsole.aws.amazon.com%2Fbilling%2Fhome%3=
+Fref_%3Dpe_3493790_260402510%23%2Fpreference&H=3DFBLMYCS8OAGIJ45DGPCKSBHBQJ=
+YA&ref_=3Dpe_3493790_260402510">Cost Management Preferences</a>.</em>
+               </td>
+           </tr>
+       </table>=20
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <p class=3D"footer">
+           If you wish to stop receiving notifications, please click <span =
+style=3D"background:aqua;"><a href=3D"https://www.amazon.com/gp/f.html?C=3D=
+1970XDYI1EEUZ&K=3D3RYY7GEDPIUGM&M=3Durn:rtn:msg:201801010424375637dcdc44654=
+4968983680685d0p0na&R=3D3U7Y3N87ZT5MV&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.co=
+m%2Fcontact-us%2F%3Fnc1%3Df_m%26ref_%3Dpe_3493790_260402510&H=3DOQJSZLABMPF=
+V3SMT4PBIMF8AGEYA&ref_=3Dpe_3493790_260402510">here</a></span> to request o=
+pting out of this notification. Please do not reply directly to this email.=
+ If you have any questions or comments regarding this email, please contact=
+ us at <a href=3D"https://www.amazon.com/gp/f.html?C=3D1970XDYI1EEUZ&K=3D3R=
+YY7GEDPIUGM&M=3Durn:rtn:msg:201801010424375637dcdc446544968983680685d0p0na&=
+R=3D3U7Y3N87ZT5MV&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Fsupport%3Fref_%3=
+Dpe_3493790_260402510&H=3DAWXODKYF4RGE05EM8DWHLEAMRH0A&ref_=3Dpe_3493790_26=
+0402510">https://aws.amazon.com/support</a>
+  </p>
+  <p class=3D"footer">
+ =20
+    This message was produced and distributed by Amazon Web Services, Inc.,=
+ 410 Terry Avenue North, Seattle, Washington 98109-5210. AWS will not be bo=
+und by, and specifically objects to, any term, condition or other provision=
+ which is different from or in addition to the provisions of the AWS Custom=
+er Agreement or AWS Enterprise Agreement between AWS and you (whether or no=
+t it would materially alter such AWS Customer Agreement or AWS Enterprise A=
+greement) and which is submitted in any order, receipt, acceptance, confirm=
+ation, correspondence or otherwise, unless AWS specifically agrees to such =
+provision in a written instrument signed by AWS.
+ =20
+    <img width=3D"1" height=3D"1" src=3D"https://www.amazon.com/gp/r.html?C=
+=3D1970XDYI1EEUZ&K=3D3RYY7GEDPIUGM&M=3Durn:rtn:msg:201801010424375637dcdc44=
+6544968983680685d0p0na&R=3D3U7Y3N87ZT5MV&T=3DE&U=3Dhttps%3A%2F%2Fimages-na.=
+ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DOEIKJH5HVB1V=
+DV8OLOQBCAHC5N4A&ref_=3Dpe_3493790_260402510_open" /></body>
+</html>
+------=_Part_3310434_1611895896.1514780677678--

@@ -1,0 +1,83 @@
+Delivered-To: jake.cronin4@gmail.com
+Received: by 10.140.38.180 with SMTP id t49csp7041684qgt;
+        Tue, 26 Dec 2017 14:48:34 -0800 (PST)
+X-Google-Smtp-Source: ACJfBoub9EUcoUWlRZ5LvnXK5efTzUXz23nm0JzRZLGybAk38j7qtJqsjQSlzxIfYdMi4UjqEDPm
+X-Received: by 10.101.66.136 with SMTP id j8mr22653740pgp.78.1514328514450;
+        Tue, 26 Dec 2017 14:48:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1514328514; cv=none;
+        d=google.com; s=arc-20160816;
+        b=sDljHHXHvv4zyXemosNyMqr8PgFi3tRJz1jEKVsSmMQ1EtPT88+jy8IkxI5/PRYJRE
+         QJPtAvXf/rH3shp+0LyIMSwmxhP8TasuFkcTvz18YTN97Gp4AhFU6eoqpZ+hpnyusT63
+         Wxl4go/yvvZYM6cHMmLpaXAprOVAxZKTvXHSKiFRPKYwk37yc0bINDjWhhqkJCZLbzrO
+         GY0YOjtHWuqU14vSgfeCSl2rnS/VNc4mN1WgTmzHrqb9UE7Cr0oqy41MvoZnXv8gMhAT
+         +kM52rMRhlkTKc31ZPMpCPngA178Qr88h2PA1v6fxxmAqZXv6NIa5NTdEG/288QihyZ+
+         4LIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=thread-topic:thread-index:mime-version:subject:message-id:reply-to
+         :from:date:arc-authentication-results;
+        bh=XpD7+NBOhzpjVAAqCdsPd/d3PzKXvZgQ+u79v2tcx/8=;
+        b=z6pk5H1TSf9uSgiUJn0NFH648jQ/NWsdonaxzfaEF0TrLjpNYOrPhF6MXC95Q8d93x
+         Cy1k6bCD77ulC9bnQDk0ltkdbR+aJlsXAX5wDJTnazp6c334iImjcDfh8YEzKTNelfLg
+         4YBJBWNJPsJXdUvABz63Q3QVqAkh3FlaxOzPcVY4keXwLX4/eA9d0cDyGhPIuuWaJWJ2
+         mbubQXz4BdBuUuwtSC2Xud6a8TX/Hw8ftl1sWHnAfbO6PZb0lgi5yL1ayHgeHn9e+8d4
+         HaTFolfwE+yfvwnefT+P/jhSc8zINe5QOcNbqMpbqP1S48yzBgkccs5IiwYkb3QgLKkH
+         Om4A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of bpm_adapur@brlp.in designates 1.6.36.80 as permitted sender) smtp.mailfrom=bpm_adapur@brlp.in;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=brlp.in
+Return-Path: <bpm_adapur@brlp.in>
+Received: from nmail.brlp.in (nmail.brlp.in. [1.6.36.80])
+        by mx.google.com with ESMTPS id o13si11091553pgp.86.2017.12.26.14.48.20
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 26 Dec 2017 14:48:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of bpm_adapur@brlp.in designates 1.6.36.80 as permitted sender) client-ip=1.6.36.80;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bpm_adapur@brlp.in designates 1.6.36.80 as permitted sender) smtp.mailfrom=bpm_adapur@brlp.in;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=brlp.in
+Received: from localhost (localhost [127.0.0.1])
+	by nmail.brlp.in (Postfix) with ESMTP id 30013404092D;
+	Wed, 27 Dec 2017 04:18:19 +0530 (IST)
+Received: from nmail.brlp.in ([127.0.0.1])
+	by localhost (nmail.brlp.in [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id ZUumcxW4mvVI; Wed, 27 Dec 2017 04:18:18 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by nmail.brlp.in (Postfix) with ESMTP id A1BE24041958;
+	Wed, 27 Dec 2017 04:18:18 +0530 (IST)
+X-Virus-Scanned: amavisd-new at brlp.in
+Received: from nmail.brlp.in ([127.0.0.1])
+	by localhost (nmail.brlp.in [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 0kgukK4B3TzY; Wed, 27 Dec 2017 04:18:18 +0530 (IST)
+Received: from nmail.brlp.in (nmail.brlp.in [172.17.122.166])
+	by nmail.brlp.in (Postfix) with ESMTP id F10914041560;
+	Wed, 27 Dec 2017 04:18:16 +0530 (IST)
+Date: Wed, 27 Dec 2017 04:18:16 +0530 (IST)
+From: Viet Loung <bpm_adapur@brlp.in>
+Reply-To: Viet Loung <vietloung007@gmail.com>
+Message-ID: <1196439027.467764.1514328496923.JavaMail.zimbra@brlp.in>
+Subject: Urgent Response
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="=_8edc89a5-cfc6-4b1f-805a-eb6c12be72c1"
+X-Originating-IP: [172.17.122.166]
+X-Mailer: Zimbra 8.7.11_GA_1854 (zclient/8.7.11_GA_1854)
+Thread-Index: 9rEqpy8Sz7xSGD4apL+zWh2apT/gEA==
+Thread-Topic: Urgent Response
+
+--=_8edc89a5-cfc6-4b1f-805a-eb6c12be72c1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+
+
+I am Viet Loung I am an American soldier on active duty in Afghanistan. Am seeking your assistance to evacuate $7,000,000.00 to you as long as I am assured that it will be safe in your care until I am able to complete my service here in Afghanistan. This is not stolen money and there are no dangers involved. Please respond through my email:vietloung007@gmail.com and I will forward more information to you.
+
+Respectfully
+Viet Loung
+
+
+--=_8edc89a5-cfc6-4b1f-805a-eb6c12be72c1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html><head><style> body {height: 100%; color:#000000; font-size:12pt; font-family:arial, helvetica, sans-serif;}</style></head><body><div><br><div><br></div>I am Viet Loung I am an American soldier on active duty in Afghanistan. Am seeking your assistance to evacuate $7,000,000.00 to you as long as I am assured that it will be safe in your care until I am able to complete my service here in Afghanistan. This is not stolen money and there are no dangers involved. Please respond through my email:vietloung007@gmail.com and I will forward more information to you.<br><div><br></div>Respectfully<br>Viet Loung<br><div><br></div></div></body></html>
+--=_8edc89a5-cfc6-4b1f-805a-eb6c12be72c1--
