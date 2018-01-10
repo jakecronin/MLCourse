@@ -20,9 +20,9 @@ S = zeros(n);
 %       number of examples).
 %
 
-
-
-
+%normalize data
+sigma = (X'*X)./m;
+[U,S,~] = svd(sigma);
 
 
 
